@@ -22,8 +22,23 @@ def puissance(x, n):
 
     return resultat
 
-def puissance_rec(x,n):
+def puissance_rec(x, n):
     global nb_operations
+
+    # Cas de base
+    if n == 0:
+        return 1
+
+    # Cas général
+    nb_operations += 1
+
+    if n % 2 == 0:
+        resultat = puissance_rec(x, n//2)
+        return resultat * resultat
+
+    else:
+        resultat = puissance_rec(x, (n-1)//2)
+        return x * resultat * resultat
 
     #cas de base 
 

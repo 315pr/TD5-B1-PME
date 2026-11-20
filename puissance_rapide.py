@@ -26,8 +26,22 @@ def puissance_rapide(x, n):
     return resultat
 
 
-def puissance_rapide_rec(x,n):
+def puissance_rapide_rec(x, n):
     global nb_operations
+
+    # Cas de base
+    if n == 0:
+        return 1
+
+    # Cas général
+    nb_operations += 1
+
+    resultat = puissance_rapide_rec(x, n//2)
+
+    if n % 2 == 0:
+        return resultat * resultat
+    else:
+        return x * resultat * resultat
 
     # cas de base 
 

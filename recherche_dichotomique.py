@@ -43,6 +43,25 @@ def recherche_dichotomique(T, e):
 def recherche_dichotomique_rec(T, debut, fin, e):
     global nb_operations
 
+    # Cas de base : tableau vide ou zone de recherche vide
+    if debut > fin:
+        return None
+
+    # Cas général
+    milieu = (debut + fin) // 2
+
+    nb_operations += 1
+    test = comparaison(e, T[milieu])
+
+    if test == 0:
+        return milieu
+
+    if test < 0:
+        return recherche_dichotomique_rec(T, debut, milieu - 1, e)
+
+    else:
+        return recherche_dichotomique_rec(T, milieu + 1, fin, e)
+
     # Cas de base : tableau vide
     
     # Cas général
